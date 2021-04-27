@@ -41,7 +41,7 @@ with open(file_to_load) as election_data:
 
     # winning candidate summary
     print(f"Winning candidate is : {winning_name} \nWinning votes is : \
-    {winning_votes} votes \nWinning Percentage is : {winning_perc : .1f}%")
+    {winning_votes : ,} votes \nWinning Percentage is : {winning_perc : .1f}%")
 # Create a filename variable to a direct or indirect path to the file.
 file_to_save = os.path.join("analysis", "election_analysis.txt")
 # Using the open() function with the "w" mode we will write data to the file.
