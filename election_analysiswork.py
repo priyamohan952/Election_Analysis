@@ -21,15 +21,27 @@ with open(file_to_load) as election_data:
     #print(total_votes)
     #print(candidate_list)
     print(candidate_votes)
-    
+    winning_perc = 0
+    winning_name = ""
+    winning_votes = 0
     for candidate_name in candidate_votes:
         if candidate_name in candidate_votes:
             votes = candidate_votes[candidate_name]
             votes = int(votes)
             votesperc = (votes/ total_votes) * 100
-            print(f"Total vote% received by {candidate_name} is {round(votesperc,2)}%")
-            #vote% = votes/total_votes
-            #print(f"vote for candidate {candidate_name : " {votes%})
+            print(f"Total vote% received by {candidate_name} is {votesperc: .1f}% \n")
+            
+            
+# check the winning candidate name
+        if (votesperc > winning_perc):
+            winning_perc = votesperc
+            winning_name = candidate_name
+            winning_votes = votes
+    print(f"Winning candidate is {winning_name}. \n He received {winning_votes} votes and received a winning % of {round(winning_perc,2)}%")
+
+    # winning candidate summary
+    print(f"Winning candidate is : {winning_name} \nWinning votes is : \
+    {winning_votes} votes \nWinning Percentage is : {winning_perc : .1f}%")
 # Create a filename variable to a direct or indirect path to the file.
 file_to_save = os.path.join("analysis", "election_analysis.txt")
 # Using the open() function with the "w" mode we will write data to the file.
